@@ -2,15 +2,32 @@
   "name": "vite-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "vite.config.js",
+  "private": "true",
+  "type": "module",
   "scripts": {
-    "build": "vite build",
+    "dev": "npm run build:sub-project && npm run cp:sub-project:main-project && npm run dev --workspace=main-project",
+    "build": "npm run build:sub-project && npm run cp:sub-project:main-project && npm run build --workspace=main-project",
+    "preview": "npm run build:sub-project && npm run cp:sub-project:main-project && npm run preview --workspace=main-project",
+    "build:sub-project": "npm run build --workspace=sub-project",
+    "cp:sub-project:main-project": "node scripts/cp-files.mjs packages/sub-project/dist/ packages/main-project/public/resources/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vitejs/plugin-legacy": "^5.2.0",
     "vite": "^5.0.11"
+  },
+  "workspaces": [
+    "packages/main-project",
+    "packages/sub-project"
+  ],
+  "volta": {
+    "node": "20.9.0"
+  },
+  "dependencies": {
+    "element-plus": "^2.4.4",
+    "vue": "^3.4.7"
   }
 }

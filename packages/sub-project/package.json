@@ -1,0 +1,19 @@
+{
+  "name": "sub-project",
+  "version": "1.0.0",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "module": "./dist/sub-project/my-lib.js",
+  "exports": {
+    ".": {
+      "import": "./dist/sub-project/my-lib.js"
+    }
+  }
+}
