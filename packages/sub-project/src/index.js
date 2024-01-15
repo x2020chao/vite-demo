@@ -1,4 +1,7 @@
+import Button from './Button.vue';
+
 export default {
-  success: 0,
-  fail: 1,
-};
+  install(app) {
+    app.component('lib-button', Button)
+  }
+}

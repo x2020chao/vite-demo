@@ -5,19 +5,24 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:sub-project && npm run cp:sub-project:main-project && npm run dev --workspace=main-project",
-    "build": "npm run build:sub-project && npm run cp:sub-project:main-project && npm run build --workspace=main-project",
-    "preview": "npm run build:sub-project && npm run cp:sub-project:main-project && npm run preview --workspace=main-project",
-    "build:sub-project": "npm run build --workspace=sub-project",
-    "cp:sub-project:main-project": "node scripts/cp-files.mjs packages/sub-project/dist/ packages/main-project/public/resources/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:main": "npm run dev --workspace=main-project",
+    "dev:sub": "npm run dev --workspace=sub-project",
+    "build:main": "npm run build --workspace=main-project",
+    "build:sub": "npm run build --workspace=sub-project",
+    "preview:main": "npm run preview --workspace=main-project",
+    "preview:sub": "npm run preview --workspace=sub-project"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.3.3",
     "@vitejs/plugin-legacy": "^5.2.0",
-    "vite": "^5.0.11"
+    "@vitejs/plugin-vue": "^5.0.3",
+    "unplugin-auto-import": "^0.17.3",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^5.0.11",
+    "vite-plugin-top-level-await": "^1.4.1"
   },
   "workspaces": [
     "packages/main-project",
