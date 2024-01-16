@@ -1,3 +1,3 @@
 <template>
-  <lib-button></lib-button>
+  <router-view></router-view>
 </template>
